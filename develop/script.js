@@ -6,51 +6,51 @@ let lowCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
 let upCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 let specChar = ["*", "&", "%", "$", "#", "!","@","^","(",]
-let newArr = [];//update name
+let userCriteria = [];//my tutor says I need to imrove naming convention
 
 function cllctCriterion() {
-  let criterion = prompt("Ok, your new random PW must have at least 8 characters & no more than 128. enter the desired amount");
-  criterion = parseInt(criterion);//this line takes the user 'string' input & turns it to a number dataType
+  let pwLength = prompt("Ok, your new random PW must have at least 8 characters & no more than 128. enter the desired amount");
+  pwLength = parseInt(pwLength);//this line takes the user 'string' input & turns it to a number dataType
 
-  if (criterion >= 8 && criterion <= 128);
+  if (pwLength >= 8 && pwLength <= 128);
   else {
-    alert("length doesn't meet requirement, we strongly suggest that you do a refresh");
+    alert("length doesn't meet requirement, tap the big red button again");
     return;
+  }//i'm happy with how the logic came  out!
+
+  let pwLength0 = confirm("would you like to have lowerCase letters in your random PW?");
+  if (pwLength0) {
+    userCriteria = userCriteria.concat(lowCase);
   }
 
-  let criterion0 = confirm("would you like to have lowerCase letters in your random PW?");
-  if (criterion0) {
-    newArr = newArr.concat(lowCase);
+  let pwLength1 = confirm("would you like to have uppercase letters in your random PW?")
+  if (pwLength1) {
+    userCriteria = userCriteria.concat(upCase);
   }
 
-  let criterion1 = confirm("would you like to have uppercase letters in your random PW?")
-  if (criterion1) {
-    newArr = newArr.concat(upCase);
+  let pwLength2 = confirm("would you like to have numbers in your random PW?");
+  if (pwLength2) {
+    userCriteria = userCriteria.concat(nums);
   }
 
-  let criterion2 = confirm("would you like to have numbers in your random PW?");
-  if (criterion2) {
-    newArr = newArr.concat(nums);
+  let pwLength3 = confirm("would you like to have special characters in your random PW?");
+  if (pwLength3) {
+    userCriteria = userCriteria.concat(specChar)
   }
 
-  let criterion3 = confirm("would you like to have special characters in your random PW?");
-  if (criterion3) {
-    newArr = newArr.concat(specChar)
-  }
-
-  // this logic ensures that the user DID pick 1 criterion to include in their PW
-  if (!criterion0 && !criterion1 && !criterion2 && !criterion3) {
-    alert("your behavior doesn't make any sense bruh. get focused & get it done. we strongly suggest that you do a refresh");
+  // this logic ensures that the user DID pick 1 pwLength to include in their PW
+  if (!pwLength0 && !pwLength1 && !pwLength2 && !pwLength3) {
+    alert("your behavior doesn't make any sense bruh. get focused & get it done. tap the big red button again, please");
     return;
   }
 
   function generatePassword() {
-    let emptyQuote = "";
-    for (let i = 0; i < criterion; i++) {
-      let rndmIzer = Math.floor(Math.random() * newArr.length);
-      emptyQuote += newArr[rndmIzer];
+    let rndmIzedSelects = "";
+    for (let i = 0; i < pwLength; i++) {
+      let rndmIzer = Math.floor(Math.random() * userCriteria.length);
+      rndmIzedSelects += userCriteria[rndmIzer];
     }
-    return emptyQuote;//update name
+    return rndmIzedSelects;//update name
   }
   let password = generatePassword();
   passwordText.value = password;
