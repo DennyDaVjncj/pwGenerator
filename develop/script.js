@@ -1,11 +1,11 @@
-// Assignment Code
+// legacy Code
 let generateBtn = document.querySelector("#generate");
 let passwordText = document.querySelector("#password");
 
 let lowCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let upCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-let specChar = ["*", "&", "%", "$", "#", "!"]
+let specChar = ["*", "&", "%", "$", "#", "!","@","^","(",]
 let newArr = [];//update name
 
 function cllctCriterion() {
