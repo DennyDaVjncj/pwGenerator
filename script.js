@@ -9,10 +9,10 @@ let specChar = ["*", "&", "%", "$", "#", "!","@","^","(",]
 let userCriteria = [];//my tutor says I need to imrove naming convention
 
 function cllctCriterion() {
-  let pwLength = prompt("Ok, your new random PW must have at least 8 characters & no more than 128. enter the desired amount");
+  let pwLength = prompt("Ok, your new random PW must have at least 3 characters & no more than 128. enter the desired amount");
   pwLength = parseInt(pwLength);//this line takes the user 'string' input & turns it to a number dataType
 
-  if (pwLength >= 8 && pwLength <= 128);
+  if (pwLength >= 3 && pwLength <= 128);
   else {
     alert("length doesn't meet requirement, tap the big red button again");
     return;
